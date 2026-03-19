@@ -1,6 +1,5 @@
 from loader import data,col_names,format
 import numpy as np
-import json
 
 def basic_operation():
     means = np.mean(data,axis=0).round(2)
@@ -19,6 +18,3 @@ def basic_operation():
     
     
     return features_dict
-
-
-print(json.dumps(basic_operation(),indent=2))
