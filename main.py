@@ -17,4 +17,4 @@ def main():
         print("Statistical Analysis Completed.")
     
 if __name__ == "__main__":
-    main()
+    main() # Entry point of the program
