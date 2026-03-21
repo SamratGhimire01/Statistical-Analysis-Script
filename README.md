@@ -1,26 +1,24 @@
-````markdown
-# Statistical Analysis Engine
+# 📊 Statistical Analysis Engine
 
-A professional **CLI tool** to compute descriptive statistics and correlation matrices using **NumPy only**.  
+A professional **CLI tool** to compute descriptive statistics and correlation matrices using **NumPy only**.
 
 It helps analyze numeric datasets for machine learning preprocessing or exploratory data analysis by:
 
-- **Computing** mean, median, and standard deviation from scratch (no SciPy)
-- **Calculating** Pearson correlation matrices using manual covariance formula
-- **Handling** missing values safely with `np.nan_to_num()` and zero-division protection
-- **Supporting** N numeric columns automatically (no hardcoding)
-- **Exporting** results to console (formatted table) or JSON (machine-readable)
+- **Computing** mean, median, and standard deviation from scratch (no SciPy).
+- **Calculating** Pearson correlation matrices using a manual covariance formula.
+- **Handling** missing values safely with `np.nan_to_num()` and zero-division protection.
+- **Supporting** N numeric columns automatically (no hardcoding).
+- **Exporting** results to console (formatted table) or JSON (machine-readable).
 
 ---
 
 ## 🚀 Installation & Setup
 
-Clone the repository and navigate to the project folder:
+1. **Clone the repository** and navigate to the project folder:
+   ```bash
+   git clone https://github.com/SamratGhimire01/statistical-analysis.git
+   cd statistical-analysis
 
-```bash
-git clone https://github.com/SamratGhimire01/statistical-analysis.git
-cd statistical-analysis
-````
 
 Create a virtual environment:
 
@@ -172,7 +170,8 @@ statistical-analysis/
 
 **Samrat Ghimire**
 GitHub: [https://github.com/SamratGhimire01/Statistical-Analysis-Script.git]
-LinkedIn: *[[Your LinkedIn Profile](https://www.linkedin.com/in/samratghimire01/)]*
+
+LinkedIn: *[(https://www.linkedin.com/in/samratghimire01/)]*
 
 ---
 
