@@ -11,8 +11,6 @@ def report(result, col_names, format_type, output_folder):
         width = 20
         correlation = "".ljust(width) + "".join(name.ljust(width) for name in col_names) + "\n"
         for i, feature in enumerate(col_names):
-            if feature == 'correlation_matrix':
-                break
             print(f"\n----------{i+1}) Statistical Data of {feature}----------\n")
             print(f"Mean: {result[feature]['mean']}")
             print(f"Median: {result[feature]['median']}")
