@@ -1,9 +1,10 @@
 from argparse import ArgumentParser
 
 def get_args():
-    parse = ArgumentParser(description= "statistical-analysis")
-    parse.add_argument("--input",required=True, help="Getting the input of CSV file.")
-    parse.add_argument("--output",default="data/sample_output.json", help="Giving the output of CSV file after the processing.")
-    parse.add_argument("--format",choices=['console','json'],default="console", help="Showing the result.")
-    args = parse.parse_args()
+    prase = ArgumentParser(description="Statistical Analysis.")
+    prase.add_argument("--input", required=True, help="This is required to take the input data csv.")
+    prase.add_argument("--output", default="data/sample_output.json", help="This is required to save the analysied data in destination place.")
+    prase.add_argument("--format" ,default='console', choices=['console','json'], help="This helps to save in json or display in console.")
+    
+    args = prase.parse_args()
     return args

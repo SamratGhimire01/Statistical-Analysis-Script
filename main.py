@@ -1,20 +1,14 @@
-from src import loader,log,reporter,stats
+from src import cli,log,loader,stats,reporter
 
-from src.cli import get_args
 def main():
-    args = get_args()
-    print("Starting Statistical Analysis...")
-    log.setup_logging()
-    log.log_info("Statistical analysis started.")
-    data,col_names,format=loader.analysis(args.input, args.output, args.format)
-    
-    
-    if data is not None:
-        result = stats.basic_operation(data,col_names,format)
-        log.log_info("Basic statistical operations completed.")
-        reporter.report(result, col_names, format,args.output)
-        log.log_info("Report generation completed.")
-        print("Statistical Analysis Completed.")
+    args = cli.get_args()
+    log.setup_log()
+    log.log_info("Started for Running....")
+    header,data = loader.data_loader(args.input)
+    basic_data,correaltions = stats.basic_operation(data,header)
+    log.log_info("Data Accessing and Operation on data is done.")
+    reporter.showing(basic_data,correaltions,header,args.output,args.format)
+    log.log_info("Program Execuated Succesfully.")
     
 if __name__ == "__main__":
-    main() # Entry point of the program
+    main()

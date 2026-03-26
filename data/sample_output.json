@@ -1,48 +1,50 @@
 {
-  "age": {
-    "mean": 44.77,
-    "median": 45.0,
-    "std": 11.8
+  "Basic Operation": {
+    "Mean": {
+      "age": 44.77,
+      "salary": 76748.57,
+      "experience": 14.8,
+      "score": 72.37
+    },
+    "Median": {
+      "age": 45.0,
+      "salary": 75514.0,
+      "experience": 17.0,
+      "score": 75.0
+    },
+    "STD": {
+      "age": 11.8,
+      "salary": 23523.01,
+      "experience": 9.09,
+      "score": 14.95
+    }
   },
-  "salary": {
-    "mean": 76748.57,
-    "median": 75514.0,
-    "std": 23523.01
-  },
-  "experience": {
-    "mean": 14.8,
-    "median": 17.0,
-    "std": 9.09
-  },
-  "score": {
-    "mean": 72.37,
-    "median": 75.0,
-    "std": 14.95
-  },
-  "correlation_matrix": [
-    [
-      1.0,
-      0.4,
-      0.52,
-      -0.02
-    ],
-    [
-      0.4,
-      1.0,
-      0.97,
-      -0.15
-    ],
-    [
-      0.52,
-      0.97,
-      1.0,
-      -0.17
-    ],
-    [
-      -0.02,
-      -0.15,
-      -0.17,
-      1.0
-    ]
-  ]
+  "Correlation Matrix": {
+    "Correlation": {
+      "age": {
+        "age": 1.0,
+        "salary": 0.4,
+        "experience": 0.52,
+        "score": -0.02
+      },
+      "salary": {
+        "age": 0.4,
+        "salary": 1.0,
+        "experience": 0.97,
+        "score": -0.15
+      },
+      "experience": {
+        "age": 0.52,
+        "salary": 0.97,
+        "experience": 1.0,
+        "score": -0.17
+      },
+      "score": {
+        "age": -0.02,
+        "salary": -0.15,
+        "experience": -0.17,
+        "score": 1.0
+      }
+    }
+  }
 }
