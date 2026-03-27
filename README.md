@@ -1,152 +1,181 @@
+
 # 📊 Statistical Analysis Engine
 
-A professional **CLI tool** to compute descriptive statistics and correlation matrices using **NumPy only**.
+<p align="center">
+  <b>A professional CLI tool for statistical analysis using NumPy</b><br>
+  Clean • Fast • Reliable • Built from scratch
+</p>
 
-It helps analyze numeric datasets for machine learning preprocessing or exploratory data analysis by:
-
-- **Computing** mean, median, and standard deviation from scratch (no SciPy).
-- **Calculating** Pearson correlation matrices using a manual covariance formula.
-- **Handling** missing values safely with `np.nan_to_num()` and zero-division protection.
-- **Supporting** N numeric columns automatically (no hardcoding).
-- **Exporting** results to console (formatted table) or JSON (machine-readable).
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9+-blue?style=for-the-badge&logo=python">
+  <img src="https://img.shields.io/badge/NumPy-Used-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/CLI-Tool-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge">
+</p>
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Overview
 
-1. **Clone the repository** and navigate to the project folder:
-   ```bash
-   git clone https://github.com/SamratGhimire01/statistical-analysis.git
-   cd statistical-analysis
+**Statistical Analysis Engine** is a powerful **Command Line Interface (CLI)** tool that computes:
 
+- 📊 Descriptive Statistics (Mean, Median, Standard Deviation)
+- 🔗 Correlation Matrix (Pearson)
 
-Create a virtual environment:
+Built using **pure NumPy**, this project focuses on:
+- Understanding core statistical logic
+- Avoiding high-level libraries (like SciPy)
+- Writing clean, production-ready Python code
+
+---
+
+## ✨ Features
+
+- ✅ Compute statistics **from scratch**
+- ✅ Automatic handling of **multiple columns**
+- ✅ Detect and stop on **invalid (non-numeric) data**
+- ✅ Remove empty (NaN-only) columns
+- ✅ Output in **console or JSON format**
+- ✅ Clean CLI design using `argparse`
+- ✅ Logging support for debugging
+
+---
+
+## 📸 Demo
+
+### 🧾 CLI Command
+![CLI Command](images/cli_command.png)
+
+### 📊 Console Output
+![Console Output](images/console_output.png)
+
+### 🗂️ JSON Output
+![JSON Output](images/json_output.png)
+
+---
+
+## ⚙️ Installation
 
 ```bash
+git clone https://github.com/SamratGhimire01/statistical-analysis.git
+cd statistical-analysis
+````
+
+```bash id="jhr8zk"
 python3 -m venv venv
 ```
 
-Activate the virtual environment:
+**Activate environment**
 
-**Linux / macOS**
+Linux/macOS:
 
-```bash
+```bash id="z40f6j"
 source venv/bin/activate
 ```
 
-**Windows**
+Windows:
 
-```bash
+```bash id="k8xibw"
 venv\Scripts\activate
 ```
 
-Install dependencies:
-
-```bash
+```bash id="k8e2ww"
 pip install -r requirements.txt
 ```
 
 ---
 
-## 📊 Visuals
-
-### Console Output
-
-Formatted statistical report printed to terminal.
-
-![Console Output](images/console_output.png)
-
-### JSON Export
-
-Machine-readable output for API integration or further processing.
-
-![JSON Output](images/json_output.png)
-
----
-
 ## ▶️ Usage
 
-Run the analysis via the terminal:
-
-```bash
-python main.py --input data/sample_input.csv --output data/result.json --format json
+```bash id="5q9n1m"
+python main.py --input data/sample_input.csv --output data/result_json.json --format json
 ```
 
 ---
 
-## ⚙️ Command Arguments
+## 🧠 CLI Arguments
 
-| Argument   | Description                                                                                |
-| ---------- | ------------------------------------------------------------------------------------------ |
-| `--input`  | **Required**: Path to the source CSV file (must have header row)                           |
-| `--output` | Path where results will be saved (Default: `data/sample_output.json`)                      |
-| `--format` | Output format: `console` (formatted table) or `json` (structured data). Default: `console` |
+| Argument   | Description                         |
+| ---------- | ----------------------------------- |
+| `--input`  | Required: Input CSV file            |
+| `--output` | Output JSON path (default provided) |
+| `--format` | `console` or `json`                 |
 
 ---
 
-## 💡 Example
+## 💡 Examples
 
-```bash
-# Full analysis with JSON export:
-python main.py \
---input data/traffic_data.csv \
---output results/traffic_stats.json \
---format json
+```bash id="nt4x7p"
+# JSON output
+python main.py --input data.csv --output result.json --format json
 ```
 
-```bash
-# Quick console report:
-python main.py --input data/health_data.csv --format console
-```
-
-```bash
-# Custom output path:
-python main.py --input data.csv --output reports/summary.json --format json
+```bash id="t3a3az"
+# Console output
+python main.py --input data.csv --format console
 ```
 
 ---
 
-## 📐 Mathematical Formulas
+## 📊 Output Format
 
-This tool implements statistics from scratch to build intuition:
+### Console
 
-| Metric          | Formula                    | Implementation                              |
-| --------------- | -------------------------- | ------------------------------------------- |
-| **Mean**        | μ = (1/n) Σ xᵢ             | `np.sum(data, axis=0) / n`                  |
-| **Median**      | Middle value (sorted)      | Custom `medians()` with odd/even logic      |
-| **Std Dev**     | σ = √[ (1/n) Σ (xᵢ - μ)² ] | `np.sqrt(np.mean((data - mean)**2))`        |
-| **Correlation** | ρ = cov(X,Y) / (σₓ · σᵧ)   | `((X-μₓ)ᵀ @ (Y-μᵧ) / n) / np.outer(σₓ, σᵧ)` |
+* Clean tabular display of:
+
+  * Mean
+  * Median
+  * Standard Deviation
+  * Correlation matrix
+
+### JSON
+
+```json id="rv6kpq"
+{
+  "Basic Operation": {
+    "Mean": {},
+    "Median": {},
+    "STD": {}
+  },
+  "Correlation Matrix": {
+    "Correlation": {}
+  }
+}
+```
 
 ---
 
-## ⚠️ NaN Handling Policy
+## 📐 Mathematical Logic
 
-* Columns with **all NaN** values are removed automatically.
-* Columns with **some NaN** values are kept; correlation uses `np.nan_to_num()` to replace undefined results with `0.0`.
-* To change this behavior, edit `src/loader.py`.
+| Metric      | Formula               |
+| ----------- | --------------------- |
+| Mean        | μ = (1/n) Σ xᵢ        |
+| Median      | Sorted middle value   |
+| Std Dev     | σ = √(mean((x - μ)²)) |
+| Correlation | `np.corrcoef()`       |
+
+---
+
+## ⚠️ Data Validation
+
+* ❌ Stops execution if non-numeric values detected
+* 🔍 Logs exact row & column of error
+* 🧹 Removes empty (NaN-only) columns
+* ✅ Ensures clean dataset before processing
 
 ---
 
 ## 🧪 Testing
 
-Verify the statistical logic using the built-in test suite:
-
-```bash
-pytest tests/test_stats.py
+```bash id="cc3p2r"
+python3 -m pytest tests/test_stats.py
 ```
-
-**Test Coverage:**
-
-* ✅ Mean/median/std calculation for known data
-* ✅ Median correctness for odd/even row counts
-* ✅ Zero-variance (constant column) safety
-* ✅ Perfect correlation detection (r = 1.0)
 
 ---
 
 ## 📁 Project Structure
 
-```
+```id="7s7rqp"
 statistical-analysis/
 ├── main.py
 ├── src/
@@ -156,22 +185,55 @@ statistical-analysis/
 │   ├── reporter.py
 │   └── log.py
 ├── tests/
-│   └── test_stats.py
 ├── data/
-│   ├── sample_input.csv
-│   └── sample_output.json
-├── requirements.txt
+├── images/
 └── README.md
 ```
 
 ---
 
-## 👨‍💻 Author
+## 🎯 Why This Project Matters
 
-**Samrat Ghimire**
-GitHub: [https://github.com/SamratGhimire01/Statistical-Analysis-Script.git]
+This project demonstrates:
 
-LinkedIn: *[(https://www.linkedin.com/in/samratghimire01/)]*
+* Strong understanding of **NumPy & statistics**
+* Ability to build **real CLI tools**
+* Writing **clean, modular, production-level code**
+* Handling **edge cases & data validation**
+
+👉 This is the type of project recruiters look for in:
+
+* Data Analyst roles
+* ML Engineer roles
+* Backend Python roles
 
 ---
 
+## 👨‍💻 Author
+
+**Samrat Ghimire**  
+🔗 GitHub: https://github.com/SamratGhimire01  
+🔗 LinkedIn: https://www.linkedin.com/in/samratghimire01/  
+
+---
+
+## 📬 Contact Me
+
+If you found this project helpful or want to collaborate, feel free to reach out!
+
+👉 You can contact me through my portfolio website:  
+🔗 https://samratghimire01.com.np/index.html#contact  
+
+### 💡 What to include when reaching out:
+- Full Name  
+- Email  
+- Phone Number  
+- Your Message  
+
+I’ll get back to you as soon as possible 🚀
+
+---
+
+<p align="center">
+  ⭐ If you like this project, consider giving it a star!  
+</p>
